@@ -1,0 +1,25 @@
+.input-search{
+    width: 350px;
+    height: 35px;
+    border: 1px solid gold;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px; 
+    text-align: center;
+    font-size:20px;
+}
+
+.search-button{
+    margin-top: 10px;
+}
+
+.container{
+   height: fit-content;
+   margin:0px auto;
+}
+
+.images-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

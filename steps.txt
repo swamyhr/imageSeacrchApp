@@ -1,0 +1,7 @@
+	Steps followed 
+	
+	- First Create React App
+	- Create Compponent Of Image Search with Category Option
+	- add Selected Category with API Calling URL 
+	- then add one Next.Js with TypeScript 
+	- Add .env file 
