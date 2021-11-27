@@ -12,6 +12,7 @@ const ImageSearch = () =>
     // API Calling Function
     async function fetchImages(image_search_text)
     {
+        // Creating Request URL with query parameter and client_id
         let unspalsh_api_url = `https://api.unsplash.com/search/photos?query=${image_search_text}&client_id=${process.env.REACT_APP_CLIET_ID_FOR_UNSPLASH_API_KEY}`;
         
         // Calling UnsplashAPI with axios package  
@@ -49,7 +50,7 @@ const ImageSearch = () =>
 
                 {/* Image Container */}
                 <div className="images-container">
-                    {unspalshImages.map(image => <img className = "image-card" src = {image.urls.small} alt = "imageFromAPI"/>)}
+                    {unspalshImages.map(image => <img className = "image-card" src = {image.urls.small} alt = "imageFromAPI" key={image.urls.id}/>)}
                 </div>                   
             </div>
 }
