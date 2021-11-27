@@ -5,20 +5,23 @@ import axios from 'axios';
 // returning ImageSearch Component
 const ImageSearch = () =>
 {
+    // Creating State Hook for Image Search text and Store response Images
     let [searchText, setSearchText] = useState('');
     let [unspalshImages, setUnsplashImages] = useState([]);
 
-    async function fetchImages(image_search_text){
-        let unspalsh_api_url = `https://api.unsplash.com/search/photos?query=${image_search_text}&client_id=lZMfOCDzWg7QwxJ1vioPYfuJ4s9C287NRONTONk7VDY`;
+    // API Calling Function
+    async function fetchImages(image_search_text)
+    {
+        let unspalsh_api_url = `https://api.unsplash.com/search/photos?query=${image_search_text}&client_id=${process.env.REACT_APP_CLIET_ID_FOR_UNSPLASH_API_KEY}`;
         
-        await axios.get(unspalsh_api_url).then((response)=>{
-            console.log(response['data']['results']);
-            if(response.data.results)
+        // Calling UnsplashAPI with axios package  
+        await axios.get(unspalsh_api_url).then((res) => {
+            if(res.data.results)
             {
-                setUnsplashImages(response.data.results);
+                setUnsplashImages(res.data.results);
             }
         }).then((error)=>{ 
-            console.log(error)
+            console.log(error);
         });
     }
 
@@ -29,23 +32,27 @@ const ImageSearch = () =>
         {
             await fetchImages(searchText);
         }
+        else
+        {
+            alert("Please Enter Some Text..")
+        }
     }
     
     // Search and Image Container
-    return <div className="container">
+    return <div>
                 <h1>Image Search Application with Unspalsh API</h1>
                 <input className="input-search" type="text" name="image_search_text" 
                         placeholder="Enter Text for Images...."
-                        onChange={(event)=>{setSearchText(event.target.value)}}/>
-                    <br/>
-                <button type="submit" className="search-button" onClick={searchImages}>Search Images</button>
+                        onChange={(event) => {setSearchText(event.target.value)}}/>
+                <br/>
+                <button type = "submit" className = "search-button" onClick = { searchImages }>Search Images</button>
+
+                {/* Image Container */}
                 <div className="images-container">
-                   {unspalshImages.map((images) => {
-                       console.log(images.urls.small);
-                       <img src={require("'" + images.urls.small + "'")} alt="images"/>
-                   })}
+                    {unspalshImages.map(image => <img className = "image-card" src = {image.urls.small} alt = "imageFromAPI"/>)}
                 </div>                   
             </div>
 }
 
+// exporting component
 export default ImageSearch;

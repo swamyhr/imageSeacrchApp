@@ -1,3 +1,4 @@
+/* Search Image Input Field Style */ 
 .input-search{
     width: 350px;
     height: 35px;
@@ -9,17 +10,32 @@
     font-size:20px;
 }
 
+/* Search Button Margin */
 .search-button{
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: limegreen;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    font-size: 15px;
 }
 
-.container{
-   height: fit-content;
-   margin:0px auto;
-}
-
+/* Image Container to Display Multiple Images */
 .images-container{
+    justify-content: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+/* Each Image Style */
+.image-card{
+    border-radius: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 300px;
 }
