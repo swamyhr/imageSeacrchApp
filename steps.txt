@@ -1,0 +1,8 @@
+	Steps followed 
+	
+	- First Create React App
+	- Create Compponent Image Search  
+	- Integrate API with described URL
+	- Add .env file 
+	- then add Next.Js with TypeScript 
+	 
