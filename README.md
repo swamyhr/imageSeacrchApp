@@ -1,3 +1,3 @@
+Image Search Application with **Unsplash API** and **React**
 
-1. At first(only once) to install all necessary packages  
-  - run "npm install"  
+* At first(only once) to install all necessary packages run "npm install"  
